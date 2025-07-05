@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blindagem Emocional | O Guia Prático</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Azul Escuro/Grafite */
+            --secondary-color: #34495e; /* Azul um pouco mais claro */
+            --accent-color: #f1c40f; /* Dourado/Amarelo */
+            --light-bg: #f4f4f4;
+            --text-color: #333;
+            --white-color: #ffffff;
+            --font-header: 'Merriweather', serif;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-color);
+            background-color: var(--white-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-header);
+            color: var(--primary-color);
+            font-weight: 900;
+            line-height: 1.3;
+        }
+
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; }
+        h3 { font-size: 1.8rem; }
+        p { font-size: 1.1rem; margin-bottom: 1em; }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-family: var(--font-header);
+            font-weight: 700;
+            font-size: 1.4rem;
+            text-align: center;
+            padding: 20px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Header */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600') no-repeat center center/cover;
+            color: var(--white-color);
+            text-align: center;
+            padding: 100px 0;
+        }
+        .hero h1 {
+            color: var(--white-color);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero h2 {
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 1.5rem;
+            color: var(--white-color);
+            max-width: 700px;
+            margin: 20px auto 0;
+            opacity: 0.9;
+        }
+
+        /* Problema */
+        .problem-section .sub-problem {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        /* Apresentacao */
+        .product-mockup {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .product-mockup img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.2));
+        }
+        
+        .be-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-header);
+            font-size: 2rem;
+            color: var(--primary-color);
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        .be-logo svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Beneficios */
+        .benefits-list {
+            list-style: none;
+        }
+        .benefits-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .benefits-list li svg {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* Depoimentos */
+        .testimonial {
+            background-color: var(--white-color);
+            border: 1px solid #ddd;
+            border-left: 5px solid var(--primary-color);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .testimonial footer {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Criador */
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background-color: var(--white-color);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        .author-box img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--accent-color);
+        }
+        
+        /* Value Stack */
+        .value-stack-box {
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 30px;
+        }
+        .value-stack-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .value-stack-item:last-child {
+            border-bottom: none;
+        }
+        .value-stack-item span {
+            font-weight: 700;
+        }
+        .total-value {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .total-value .strikethrough {
+            text-decoration: line-through;
+            color: #999;
+        }
+        
+        /* Preço */
+        .price-box {
+            text-align: center;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 40px;
+            border-radius: 10px;
+        }
+        .price-box p {
+            font-size: 1.2rem;
+        }
+        .price-box h2 {
+            font-size: 4rem;
+            color: var(--accent-color);
+            margin: 10px 0;
+        }
+        .price-box .small-text {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Garantia */
+        .guarantee-box {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background-color: #eaf5ff;
+            border: 2px dashed var(--secondary-color);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        .guarantee-seal {
+            flex-shrink: 0;
+            width: 150px;
+            height: 150px;
+        }
+        .guarantee-seal svg{
+            width: 100%;
+            height: 100%;
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-item h4 {
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+        
+        .center-text {
+            text-align: center;
+        }
+        
+        .mid-page-cta {
+             margin-top: 40px;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .container { padding: 20px 15px; }
+            section { padding: 40px 0; }
+            .hero { padding: 60px 0; }
+            .author-box, .guarantee-box {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Existe uma 'Blindagem' Contra o Caos, o Esgotamento e a Sobrecarga Emocional.</h1>
+            <h2>Descubra o método prático para <strong>proteger sua energia</strong>, <strong>manter a calma</strong> em situações de alta pressão e finalmente <strong>retomar o controle</strong> da sua vida – sem precisar de anos de terapia ou meditações complicadas.</h2>
+        </div>
+    </header>
+
+    <section id="problema" class="problem-section">
+        <div class="container">
+            <h2>Você reconhece este sentimento?</h2>
+            <p>Aquele de chegar ao fim de um dia exaustivo, não apenas com o corpo cansado, mas com a mente e a alma completamente drenadas.</p>
+            <p>A sensação de viver no piloto automático, correndo de uma tarefa para outra, apagando incêndios, respondendo a demandas que parecem nunca ter fim.</p>
+            <p>Você se tornou uma "esponja emocional". Absorve a negatividade de um colega de trabalho, a ansiedade de um chefe, o drama familiar... e quando percebe, não tem mais energia para si mesmo.</p>
+            <p>O domingo à noite se tornou um gatilho de ansiedade, antecipando uma semana que parece ser apenas uma repetição da anterior. E a culpa... a culpa de querer descansar, de dizer "não", de colocar suas próprias necessidades em primeiro lugar.</p>
+            
+            <div class="sub-problem">
+                <p><strong>Talvez você esteja na casa dos 20 ou 30 e poucos anos...</strong>
+                ...sentindo a imensa pressão de ter que acertar em todas as decisões, construir uma carreira e provar seu valor. Cada crítica parece um ataque pessoal, cada falha parece o fim do mundo, e a síndrome do impostor é sua companheira constante, sussurrando que você não é bom o suficiente.</p>
+            </div>
+            
+            <div class="sub-problem">
+                <p><strong>Ou talvez você já tenha passado dos 35 ou 40...</strong>
+                ...e esteja jonglando os pratos de uma carreira exigente, as responsabilidades familiares e a sensação de que o tempo está passando rápido demais. O burnout não é mais uma palavra distante; é um vizinho batendo à sua porta. A pergunta "é só isso que a vida me reserva?" ecoa em sua mente, enquanto sua energia vital é consumida dia após dia.</p>
+            </div>
+            
+            <p style="margin-top: 2em; font-weight: 700; text-align: center;">Seja qual for o seu momento, a verdade é uma só: <strong>viver assim não é sustentável.</strong> E no fundo, você sabe disso.</p>
+        </div>
+    </section>
+
+    <section id="solucao">
+        <div class="container">
+            <h2 class="center-text">E se a solução fosse construir, de dentro para fora, uma Imunidade Emocional?</h2>
+            <p>E se eu te dissesse que a solução não é trabalhar menos, meditar por horas ou se isolar do mundo?</p>
+            <p>Uma espécie de "blindagem" interna que não impede você de sentir, mas impede que as circunstâncias externas e a negatividade alheia ditem seu estado de espírito e roubem sua energia.</p>
+            <p>Não é um dom com o qual algumas pessoas nascem. <strong>É uma habilidade que pode ser aprendida.</strong></p>
+            <p>É um conjunto de ferramentas práticas e acionáveis que te permite navegar o caos com uma calma que você não achava ser possível. É a capacidade de se manter centrado, tomar decisões claras e proteger seu bem mais precioso: sua paz interior.</p>
+        </div>
+    </section>
+
+    <section id="apresentacao">
+        <div class="container center-text">
+            <h3>É exatamente por isso que eu criei o:</h3>
+            
+            <div class="be-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z"></path></svg>
+                <span>Blindagem Emocional</span>
+            </div>
+            <p><strong>O Guia Prático para Proteger sua Energia, Manter a Calma em Meio ao Caos e Retomar o Controle da sua Vida.</strong></p>
+
+            <div class="product-mockup">
+                <img src="https://i.postimg.cc/sg2kxfMc/Logo-Blindagem-Emocional.png"Mockup do Guia Blindagem Emocional e Bônus">
+            </div>
+
+            <p>Este não é mais um livro de autoajuda com teorias vagas. É um <strong>manual de campo</strong>, um guia digital passo a passo, projetado para te dar as ferramentas exatas para construir sua fortaleza interna, imediatamente.</p>
+
+            <div class="center-text mid-page-cta">
+                <a href="#checkout-link" class="cta-button">QUERO A MINHA BLINDAGEM EMOCIONAL AGORA!</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="beneficios">
+        <div class="container">
+            <h2 class="center-text">O que você vai descobrir:</h2>
+            <ul class="benefits-list" style="margin-top: 40px;">
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11.0026 16L18.0737 8.92893L16.6595 7.51472L11.0026 13.1716L8.17421 10.3431L6.75999 11.7574L11.0026 16Z"></path></svg> <div><strong>Dizer "NÃO" sem culpa</strong> e estabelecer limites firmes, mas gentis, que farão as pessoas respeitarem seu tempo e sua energia.</div></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11.0026 16L18.0737 8.92893L16.6595 7.51472L11.0026 13.1716L8.17421 10.3431L6.75999 11.7574L11.0026 16Z"></path></svg> <div><strong>Identificar e neutralizar "vampiros de energia"</strong> no seu círculo profissional e pessoal, antes que eles drenem sua vitalidade.</div></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11.0026 16L18.0737 8.92893L16.6595 7.51472L11.0026 13.1716L8.17421 10.3431L6.75999 11.7574L11.0026 16Z"></path></svg> <div><strong>Aplicar a técnica do "Ancoramento de Calma"</strong> em menos de 5 minutos para enfrentar reuniões tensas e conversas difíceis com clareza mental.</div></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11.0026 16L18.0737 8.92893L16.6595 7.51472L11.0026 13.1716L8.17421 10.3431L6.75999 11.7574L11.0026 16Z"></path></svg> <div><strong>Desligar sua mente do trabalho</strong> ao fim do dia, acabando com a ansiedade noturna e permitindo um sono verdadeiramente reparador.</div></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11.0026 16L18.0737 8.92893L16.6595 7.51472L11.0026 13.1716L8.17421 10.3431L6.75999 11.7574L11.0026 16Z"></path></svg> <div><strong>Transformar críticas e julgamentos</strong> em combustível para o seu crescimento, em vez de deixá-los paralisar você.</div></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11.0026 16L18.0737 8.92893L16.6595 7.51472L11.0026 13.1716L8.17421 10.3431L6.75999 11.7574L11.0026 16Z"></path></svg> <div><strong>Retomar o controle da sua agenda e das suas emoções</strong>, trocando a sensação de reatividade pela confiança de quem está no comando.</div></li>
+            </ul>
+            <p style="margin-top: 2em; font-weight: 700; text-align: center; font-size: 1.3rem;">Imagine-se terminando o dia com energia de sobra. Imagine-se enfrentando um desafio com uma serenidade que impressiona. Imagine-se sentindo, finalmente, paz.</p>
+        </div>
+    </section>
+
+    <section id="depoimentos">
+        <div class="container">
+            <h2 class="center-text">Esta é a transformação que te espera.</h2>
+            <div style="margin-top: 40px;">
+                <div class="testimonial">
+                    <p>"Eu estava no meu limite, achava que o burnout era inevitável. O conceito de 'proteger a energia' mudou meu jogo. Hoje, consigo liderar minha equipe com muito mais calma e ainda tenho pique para brincar com meus filhos à noite. Foi um divisor de águas."</p>
+                    <footer>- Fernanda R., Gerente de Projetos, 38 anos</footer>
+                </div>
+                <div class="testimonial">
+                    <p>"A 'Crise dos 25' me pegou em cheio. Eu duvidava de tudo e qualquer feedback negativo me destruía. As ferramentas do guia me ajudaram a construir uma confiança que eu não tinha. Aprendi a separar quem eu sou do meu trabalho. Recomendo demais."</p>
+                    <footer>- Lucas P., Advogado Júnior, 29 anos</footer>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="criador">
+        <div class="container">
+            <div class="author-box">
+                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Foto do criador do método">
+                <div>
+                    <h3>Olá, eu sou Paulo. E eu sei como é se sentir no limite.</h3>
+                    <p>Durante anos, eu vivi em um ciclo de alta performance e exaustão. Eu acreditava que para ter sucesso, precisava estar sempre disponível, sempre produzindo, sempre dizendo "sim". O resultado? Minha saúde, meus relacionamentos e minha paz de espírito pagaram o preço.</p>
+                    <p>Eu me sentia exatamente como a "esponja emocional" que descrevi. Foi apenas quando mergulhei na psicologia da performance e da resiliência e testei incansavelmente cada técnica que descobri que a solução não era externa, mas interna.</p>
+                    <p>Compilei apenas as ferramentas mais eficazes e práticas – aquelas que funcionam no mundo real, para pessoas ocupadas – neste guia. Meu objetivo é te entregar o arsenal que eu gostaria de ter tido anos atrás e te ajudar a construir sua própria blindagem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="oferta">
+        <div class="container">
+            <h2 class="center-text">Receba o Kit Completo de Blindagem Emocional</h2>
+            <div class="value-stack-box" style="margin-top: 30px;">
+                <div class="value-stack-item"><strong>O Guia Principal "Blindagem Emocional"</strong> <span>(Valor: R$ 97,00)</span></div>
+                <div class="value-stack-item"><strong>BÔNUS #1: Áudio-Guia de Meditação "Âncora de Calma"</strong> <span>(Valor: R$ 47,00)</span></div>
+                <div class="value-stack-item"><strong>BÔNUS #2: Checklist "Lidando com Pessoas Tóxicas"</strong> <span>(Valor: R$ 37,00)</span></div>
+                <div class="value-stack-item"><strong>BÔNUS #3 DE LANÇAMENTO: Acesso à Comunidade "Guardiões da Calma"</strong> <span>(Valor: R$ 197,00/ano)</span></div>
+                
+                <div class="total-value">
+                    VALOR TOTAL DO PACOTE: <span class="strikethrough">R$ 378,00</span>
+                </div>
+            </div>
+            <div class="center-text mid-page-cta">
+                <a href="#checkout-link" class="cta-button">SEM PERCA DE TEMPO, QUERO A MINHA BLINDAGEM EMOCIONAL AGORA!</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="preco">
+        <div class="container">
+            <div class="price-box">
+                <p>Seu acesso ao Kit Completo de Blindagem Emocional não sairá por R$ 378,00.</p>
+                <p><strong>SOMENTE HOJE, através desta página de lançamento, seu acesso é de apenas:</strong></p>
+                <h2>12x de R$ 9,74</h2>
+                <p>ou R$ 97,00 à vista</p>
+                
+                <a href="#checkout-link" class="cta-button">SIM, QUERO A MINHA BLINDAGEM EMOCIONAL AGORA!</a>
+                <p class="small-text">Acesso Imediato e 100% Seguro</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="garantia">
+        <div class="container">
+             <div class="guarantee-box">
+                <div class="guarantee-seal">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <path id="circlePath" d="M 10, 50 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" />
+                        </defs>
+                        <circle cx="50" cy="50" r="48" fill="#eaf5ff" stroke="var(--secondary-color)" stroke-width="2" stroke-dasharray="8 4"/>
+                        <circle cx="50" cy="50" r="38" fill="var(--primary-color)"/>
+                        <text fill="#f1c40f" font-size="10" font-family="var(--font-header)" font-weight="bold" letter-spacing="1">
+                            <textPath href="#circlePath">GARANTIA DUPLA BLINDAGEM INCONDICIONAL</textPath>
+                        </text>
+                        <text x="50" y="48" text-anchor="middle" font-size="28" font-family="var(--font-header)" font-weight="900" fill="var(--white-color)">30</text>
+                        <text x="50" y="68" text-anchor="middle" font-size="14" font-family="var(--font-body)" font-weight="bold" fill="var(--white-color)">DIAS</text>
+                    </svg>
+                </div>
+                <div>
+                    <h3>Sua Satisfação Garantida ou seu Dinheiro de Volta (e o guia é seu).</h3>
+                    <p>Eu tenho tanta confiança no poder de transformação deste método que faço questão de tirar todo o risco dos seus ombros e colocar nos meus.</p>
+                    <p>Adquira o guia hoje e se em até 30 dias você não sentir uma mudança notável ou simplesmente não gostar do material, basta me enviar um único e-mail. Devolverei 100% do seu dinheiro sem perguntas. E você pode <strong>ficar com o guia e todos os bônus</strong> como um presente.</p>
+                    <p><strong>O risco é totalmente zero. Ou você se transforma, ou é de graça.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="faq">
+        <div class="container">
+            <h2 class="center-text">Perguntas Frequentes</h2>
+            <div style="margin-top: 40px;">
+                <div class="faq-item">
+                    <h4>Para quem é este guia?</h4>
+                    <p>É para qualquer profissional, empreendedor ou pessoa que se sinta sobrecarregada, com a energia drenada e que deseje ferramentas práticas para gerenciar o estresse e retomar o controle da sua vida emocional.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Como receberei o acesso?</h4>
+                    <p>O acesso é 100% digital e imediato. Após a confirmação do pagamento, você receberá um e-mail da Kirvano com todas as instruções para baixar seu guia e bônus.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Preciso de muito tempo para aplicar as técnicas?</h4>
+                    <p>Não. O guia foi desenhado para pessoas ocupadas. As técnicas são práticas e podem ser integradas na sua rotina diária, muitas delas levando apenas alguns minutos.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>E se eu não gostar?</h4>
+                    <p>Seu risco é zero. Se por qualquer motivo não ficar satisfeito nos primeiros 30 dias, basta pedir o reembolso e devolveremos 100% do seu dinheiro, e você ainda fica com o material.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Este pagamento é uma assinatura?</h4>
+                    <p>Não. O pagamento é único e te dá acesso vitalício ao guia e aos bônus em PDF. O único bônus com prazo é o acesso à comunidade, que é válido por 1 ano.</p>
+                </div>
+            </div>
+            
+            <div class="center-text mid-page-cta">
+                <p style="font-size:1.3rem;"><strong>Você tem mais alguma pergunta?</strong> A única pergunta que resta é: quanto vale a sua paz de espírito?</p>
+                <a href="#checkout-link" class="cta-button">SIM! ESTOU PRONTO(A) PARA CONSTRUIR MINHA BLINDAGEM EMOCIONAL!</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer style="background-color: var(--primary-color); color: var(--white-color); text-align:center; padding: 20px;">
+        <p style="margin:0; font-size: 0.9rem;">Copyright © 2025 - Blindagem Emocional - Todos os direitos reservados.</p>
+        <p style="margin:0; font-size: 0.8rem; opacity: 0.7;">Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Depois que você sair do Facebook, a responsabilidade não é deles e sim do nosso site.</p>
+    </footer>
+
+</body>
+</html>
